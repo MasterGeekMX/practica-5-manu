@@ -3,11 +3,14 @@
 <beans>
 
     <!-- Crea el mapeador -->
-    <bean id="mapeador" class="mx.uam.is.practicadiseno.datos.MapeadorDatosArchivo"/>
+    <bean id="mapeador" class="mx.uam.is.practicadiseno.datos.MapeadorDatosImpl"/>
 
     <!-- Crea el manejador -->
-    <bean id="manejador" class="mx.uam.is.practicadiseno.negocio.ManejadorImpl">
+    <bean id="manejadorImpl" class="mx.uam.is.practicadiseno.negocio.ManejadorImpl">
         <constructor-arg><ref bean="mapeador"/></constructor-arg>
+    </bean>
+     <bean id="manejador" class="mx.uam.is.practicadiseno.negocio.ManejadorProxy">
+        <constructor-arg><ref bean="manejadorImpl"/></constructor-arg>
     </bean>
 
     <!-- Crea las ventanas -->

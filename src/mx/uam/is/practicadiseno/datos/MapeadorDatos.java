@@ -31,4 +31,5 @@ public interface MapeadorDatos {
 	 * @return
 	 */
 	public boolean contiene(String dato);
+	
 }
